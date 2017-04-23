@@ -50,6 +50,7 @@ public class ProgramFragmentActivity extends AppCompatActivity implements View.O
     }
 
     private void initData(Bundle savedInstanceState) {
+        //1. 先从fragmentManager中,获取下fragment,如果可以获取到,说明是销毁重建的,如果获取不到,说明是新打开的activity
         mFragmentManager = getSupportFragmentManager();
         mTitleFragment = (TitleFragment) mFragmentManager.findFragmentById(mFlTitle.getId());
         mContentFragment = (ContentFragment) mFragmentManager.findFragmentById(mFlContent.getId());
