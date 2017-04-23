@@ -54,16 +54,16 @@ public class ProgramFragmentActivity extends AppCompatActivity implements View.O
         mFragmentManager = getSupportFragmentManager();
         mTitleFragment = (TitleFragment) mFragmentManager.findFragmentById(mFlTitle.getId());
         mContentFragment = (ContentFragment) mFragmentManager.findFragmentById(mFlContent.getId());
-        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+//        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
         if(mTitleFragment == null){
             mTitleFragment = new TitleFragment();
-            fragmentTransaction.add(mFlTitle.getId(), mTitleFragment);
+//            fragmentTransaction.add(mFlTitle.getId(), mTitleFragment);
         }
         if(mContentFragment == null){
             mContentFragment = new ContentFragment();
-            fragmentTransaction.add(mFlContent.getId(), mContentFragment);
+//            fragmentTransaction.add(mFlContent.getId(), mContentFragment);
         }
-        fragmentTransaction.commitAllowingStateLoss();
+//        fragmentTransaction.commitAllowingStateLoss();
     }
 
 
@@ -71,16 +71,32 @@ public class ProgramFragmentActivity extends AppCompatActivity implements View.O
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_show_title:
-                mFragmentManager.beginTransaction().show(mTitleFragment).commitAllowingStateLoss();
+                if(mTitleFragment.isAdded()){
+                    mFragmentManager.beginTransaction().show(mTitleFragment).commitAllowingStateLoss();
+                }else{
+                    mFragmentManager.beginTransaction().add(mFlTitle.getId(), mTitleFragment).commitAllowingStateLoss();
+                }
                 break;
             case R.id.bt_hide_title:
-                mFragmentManager.beginTransaction().hide(mTitleFragment).commitAllowingStateLoss();
+                if(mTitleFragment.isAdded()){
+                    mFragmentManager.beginTransaction().hide(mTitleFragment).commitAllowingStateLoss();
+                }else{
+                    mFragmentManager.beginTransaction().add(mFlTitle.getId(), mTitleFragment).hide(mTitleFragment).commitAllowingStateLoss();
+                }
                 break;
             case R.id.bt_show_content:
-                mFragmentManager.beginTransaction().show(mContentFragment).commitAllowingStateLoss();
+                if(mContentFragment.isAdded()){
+                    mFragmentManager.beginTransaction().show(mContentFragment).commitAllowingStateLoss();
+                }else{
+                    mFragmentManager.beginTransaction().add(mFlContent.getId(), mContentFragment).commitAllowingStateLoss();
+                }
                 break;
             case R.id.bt_hide_content:
-                mFragmentManager.beginTransaction().hide(mContentFragment).commitAllowingStateLoss();
+                if(mContentFragment.isAdded()){
+                    mFragmentManager.beginTransaction().hide(mContentFragment).commitAllowingStateLoss();
+                }else{
+                    mFragmentManager.beginTransaction().add(mFlContent.getId(), mContentFragment).hide(mContentFragment).commitAllowingStateLoss();
+                }
                 break;
         }
     }
