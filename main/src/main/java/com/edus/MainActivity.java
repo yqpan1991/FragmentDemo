@@ -38,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
         list.add(info);
         info = new ItemInfo("手工添加fragment", new Intent(this, ProgramFragmentActivity.class));
         list.add(info);
+        info = new ItemInfo("ViewPager+FragmentAdapter", new Intent(this, ViewPagerFragmentActivity.class));
+        list.add(info);
+        info = new ItemInfo("ViewPager+FragmentStatedAdapter", new Intent(this, ViewPagerFragmentStatedActivity.class));
+        list.add(info);
         mAdapter.setDataList(list);
     }
 

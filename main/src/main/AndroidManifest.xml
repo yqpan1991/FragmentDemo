@@ -14,6 +14,8 @@
 
         <activity android:name="com.edus.ViewInnerFragmentActivity"/>
         <activity android:name="com.edus.ProgramFragmentActivity"/>
+        <activity android:name="com.edus.ViewPagerFragmentActivity"/>
+        <activity android:name="com.edus.ViewPagerFragmentStatedActivity"/>
     </application>
 
 </manifest>
