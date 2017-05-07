@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         list.add(info);
         info = new ItemInfo("ViewPager+FragmentStatedAdapter", new Intent(this, ViewPagerFragmentStatedActivity.class));
         list.add(info);
+        info = new ItemInfo("Fragment动画", new Intent(this, FragmentAnimationActivity.class));
+        list.add(info);
         mAdapter.setDataList(list);
     }
 
